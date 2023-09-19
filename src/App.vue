@@ -1,28 +1,43 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div>
+    <a href="#/home">首页</a>
+    <a href="#/music">电影</a>
+    <a href="#/about">关于</a>
+    <component :is="comName"></component>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import MyAbout from '@/components/MyAbout.vue'
+import MyHome from '@/components/MyHome.vue'
+import MyMovie from '@/components/MyMovie.vue'
 
 export default {
-  name: 'App',
   components: {
-    HelloWorld
+    MyAbout,
+    MyHome,
+    MyMovie
+  },
+  created () {
+    window.onhashchange = () => {
+      let hash = location.hash
+      if (hash == '#/home') {
+        this.comName = 'MyHome'
+      } else if (hash == '#/about') {
+        this.comName = 'MyAbout'
+      } else {
+        this.comName = 'MyMovie'
+      }
+    }
+  },
+  data() {
+    return {
+      comName: 'MyHome'
+    }
   }
 }
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+
 </style>
