@@ -1,12 +1,10 @@
 <template>
-  <!-- <div>App组件</div> -->
-  <router-view></router-view>
+  <h4 class="text-center">权限管理</h4>
 </template>
 
 <script>
 export default {
-  // router,
-  name: 'MyApp'
+  name: 'MyRights'
 }
 </script>
 
