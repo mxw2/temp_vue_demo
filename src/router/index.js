@@ -9,6 +9,7 @@ import MyOrders from '@/components/menus/MyOrders.vue'
 import MyRights from '@/components/menus/MyRights.vue'
 import MySettings from '@/components/menus/MySettings.vue'
 import MyUsers from '@/components/menus/MyUsers.vue'
+import MyUserDetail from '@/components/user/MyUserDetail.vue'
 
 const routes = [
     { path: '/login', component: MyLogin },
@@ -21,7 +22,8 @@ const routes = [
         { path: 'orders', component: MyOrders },
         { path: 'rights', component: MyRights },
         { path: 'settings', component: MySettings },
-        { path: 'users', component: MyUsers }
+        { path: 'users', component: MyUsers },
+        { path: 'userinfo/:id/:name', component: MyUserDetail }
       ]
     }
 ]

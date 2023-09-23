@@ -16,10 +16,22 @@ export default {
   name: 'MyAside',
   methods: {
   ulHasClick(e) {
-    console.log(e.target.innerText)
+    // 如果再次点击当前选中，就要return，否则报错哈，不能重复push
     if (e.target.innerText === '用户管理') {
       this.$router.push({
         path: '/home/users'
+      })
+    } else if (e.target.innerText === '权限管理') {
+      this.$router.push({
+        path: '/home/rights'
+      })
+    } else if (e.target.innerText === '订单管理') {
+      this.$router.push({
+        path: '/home/orders'
+      })
+    } else if (e.target.innerText === '系统设置') {
+      this.$router.push({
+        path: '/home/settings'
       })
     }
   }

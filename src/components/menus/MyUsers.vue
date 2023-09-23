@@ -15,12 +15,12 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>1</td>
-          <td>xx</td>
-          <td>xx</td>
-          <td>xx</td>
-          <td>查看详情</td>
+        <tr v-for="(item, index) in userlist" :key="item.id">
+          <td>{{ index + 1}}</td>
+          <td>{{ item.name }}</td>
+          <td>{{ item.position }}</td>
+          <td>{{ item.age }}</td>
+          <router-link :to="'/home/userinfo/' + item.id + '/' + item.name">查看详情</router-link>
         </tr>
       </tbody>
     </table>
