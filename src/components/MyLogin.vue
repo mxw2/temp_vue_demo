@@ -17,6 +17,7 @@
             id="username"
             placeholder="请输入登录名称"
             autocomplete="off"
+            v-model="username"
           />
         </div>
         <!-- 登录密码 -->
@@ -27,12 +28,13 @@
             class="form-control ml-2"
             id="password"
             placeholder="请输入登录密码"
+            v-model="password"
           />
         </div>
         <!-- 登录和重置按钮 -->
         <div class="form-group form-inline d-flex justify-content-end">
           <button type="button" class="btn btn-secondary mr-2">重置</button>
-          <button type="button" class="btn btn-primary">登录</button>
+          <button type="button" class="btn btn-primary" @click="onSubmit">登录</button>
         </div>
       </div>
     </div>
@@ -41,7 +43,25 @@
 
 <script>
 export default {
-  name: 'MyLogin'
+  name: 'MyLogin',
+  data() {
+    return {
+      username: '',
+      password: ''
+    }
+  },
+  methods: {
+    onSubmit() {
+      // 发送ajxs请求
+      if (this.username === 'r' && this.password === '1') {
+        alert('成功')
+        localStorage.setItem('router_token', 'temp_token')
+        this.$router.push('/home')
+      } else {
+        alert('错误')
+      }
+    }
+  }
 }
 </script>
 
